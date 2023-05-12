@@ -56,7 +56,11 @@ Most modern webservers restrict your download speed, which can result in annoyin
 
 Building is quick and easy, just follow the instructions below!
 
-You will need 2 additional libraries to build this project from scratch:
+First, clone the repo: <br>
+`git clone https://github.com/hdngo/multi-threaded-downloader.git` <br>
+`cd multi-threaded-downloader`
+
+You will then need 2 additional libraries to build this project from scratch:
 
 - libcurl (for downloading files from servers)
 - ncurses (for non-blocking input reading)
