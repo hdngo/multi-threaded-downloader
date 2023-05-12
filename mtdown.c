@@ -319,13 +319,13 @@ void *download_worker(void *info) {
   // Cleanup curl
   curl_easy_cleanup(curl);
 
+  // Close buffer
+  fclose(thread_info->buffer);
+
   // Increase completed counter
   pthread_mutex_lock(&completed_mutex);
   completed_counter++;
   pthread_mutex_unlock(&completed_mutex);
-
-  // Close buffer
-  fclose(thread_info->buffer);
 
   return NULL;
 }
@@ -620,6 +620,11 @@ void wait_for_threads() {
       }
       return;
     }
+  }
+
+  // Join all threads after download is complete
+  for (int i = 0; i < settings.max_threads; i++) {
+    pthread_join(thread_infos[i]->thread, NULL);
   }
 }
 
