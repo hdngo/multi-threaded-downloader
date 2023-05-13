@@ -23,14 +23,15 @@
 8. [Testing and Evaluation](#testing-and-evaluation)
 9. [Future Plans](#future-plans)
 10. [Related Documentation](#related-documentation)
+11. [Contact](#contact)
 
 ## Video Representation
 
-[Link to video representation (YouTube)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+[Link to video representation (YouTube)](https://www.youtube.com/watch?v=CUEcw_lixcQ)
 
 ## Introduction
 
-Most modern webservers restrict your download speed, which can result in annoyingly long download times. However, most also don't implement this speed cap correctly, allowing us to request a download from many connections and "bypassing" this download limit, possibly raising our download speed by a substantial amount.
+Browsers, by default, use a single-threaded downloading approach and does not make full use of the resources available to them. Additionally, some web servers only enforce a speedcap over a single connection, so by spawning multiple download threads from a single host, we can not only maximize the resources available to us, we can sometimes circumvent the download limits set by the servers too. Both of these factors can help boost our download speed to a substantial amount, only limited by our available bandwidth.
 
 **Multi-Threaded Downloader (`mtdown`)** is a tool created exactly for this purpose: to provide a fast and efficient way to download files from a provided Internet URL.
 
@@ -72,6 +73,8 @@ Once that is done, we will compile it with `gcc` using the following command: <b
 `gcc mtdown.c -o mtdown -lcurl -lncurses -w`
 
 You have succesfully built this project, congrats!
+
+If you want to extend the project at a certain step, the main function provides an execution path you can use to find out where you can put your extension code.
 
 ## Usage
 
@@ -130,8 +133,16 @@ The program consists of 2 main components: the main thread and the worker thread
 
 - Custom Bandwidth Throttling
 - User-chosen Scheduling
+- Resume from Crashed Download
 
 ## Related Documentation
 
 - [libcurl](https://curl.se/libcurl/c/libcurl.html)
 - [ncurses](https://invisible-island.net/ncurses/man/ncurses.3x.html)
+- [http response codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+
+## Contact
+
+<p style='display: flex;'> 
+<span>h</span><span>d</span><span>n</span><span>g</span><span>o</span><span>@</span><span>g</span><span>m</span><span>a</span><span>i</span><span>l</span><span>.</span><span>c</span><span>o</span><span>m</span>
+</p>

@@ -67,17 +67,16 @@ typedef struct {
 #define WHITE "\033[37m"
 #define GREY "\033[90m"
 
-DLThreadInfo **thread_infos;  // global array of thread_infos
-DLProgress progress;          // global progress
-DLSettings settings;          // global settings
-int window_width;             // terminal width
-int window_height;            // terminal height
-char log_buffer[2048];        // buffer to store logs from threads
-pthread_mutex_t completed_mutex =
-    PTHREAD_MUTEX_INITIALIZER;  // mutex for completed_counter
-int completed_counter = 0;      // counter for completed threads
-time_t start_time;              // start time of download
-bool paused;                    // whether download is paused
+DLThreadInfo **thread_infos;      // global array of thread_infos
+DLProgress progress;              // global progress
+DLSettings settings;              // global settings
+int window_width;                 // terminal width
+int window_height;                // terminal height
+char log_buffer[2048];            // buffer to store logs from threads
+pthread_mutex_t completed_mutex;  // mutex for completed_counter
+int completed_counter = 0;        // counter for completed threads
+time_t start_time;                // start time of download
+bool paused;                      // whether download is paused
 
 /* ===============================================================
                       RENDERING and INTERFACE
@@ -575,7 +574,7 @@ void wait_for_threads() {
       printf(" Thread %d: " WHITE, i);
 
       for (double j = 0; j < (double)progress.downloaded_bytes[i] /
-                                 progress.total_bytes[i] * thread_bar_length;
+                                 progress.total_bytes[i] * thread_bar_length + 1.0;
            j++) {
         printf("█");
       }
