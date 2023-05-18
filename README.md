@@ -27,6 +27,8 @@
 
 ## Video Representation
 
+[Link to slides (Google Drive)](https://docs.google.com/presentation/d/1nhj7cSnVgLJBHQSCTO3mbuXX9mjSJjHa/edit?usp=sharing&ouid=108359200637556369183&rtpof=true&sd=true)
+
 [Link to video representation (YouTube)](https://www.youtube.com/watch?v=CUEcw_lixcQ)
 
 ## Introduction
